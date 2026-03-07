@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Guide - Nustle</title>
+    <title>Setup Guide - Stream Nustel</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,7 @@
             <a href="index.html" class="logo">NUSTLE</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="devices.html">Devices</a></li>
                 <li><a href="setup.html">Setup Guide</a></li>
@@ -39,49 +40,127 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero section">
+    <!-- Hero Section -->
+    <section class="page-hero setup-hero">
         <div class="glow-bg"></div>
-        <div class="container fade-up">
-            <h1 class="page-hero-title">Start streaming in <span class="highlight">3 steps</span></h1>
-            <p class="page-hero-subtitle">Follow the setup guide and start streaming in minutes. It's built to be
-                simple.</p>
+        <div class="container">
+            <h1 class="page-hero-title fade-up">Start streaming in <span class="highlight">minutes</span></h1>
+            <p class="page-hero-subtitle fade-up delay-1">Follow our step-by-step guide to configure your device and
+                connect to the Stream Nustel network.</p>
         </div>
     </section>
 
-    <!-- Steps Section -->
-    <section id="steps" class="steps section" style="padding-top: 40px; border-top: none;">
+    <!-- Master Setup Flow -->
+    <section class="section" style="padding-top: 50px;">
         <div class="container">
-            <div class="steps-grid">
-                <div class="step-card fade-up">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Choose a plan</h3>
-                        <p>Pick Basic, Premium, or 4K depending on your devices and quality.</p>
+            <div class="timeline fade-up">
+
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Choose Your Subscription</h3>
+                        <p>Purchase a plan from our pricing page. After payment, you will instantly receive your login
+                            credentials (username, password, and server URL) via email and on your dashboard.</p>
                     </div>
                 </div>
 
-                <div class="step-card fade-up delay-1">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Create your account</h3>
-                        <p>Secure checkout + instant access to your customer dashboard.</p>
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Download an App</h3>
+                        <p>Depending on your device, download a compatible IPTV application. We recommend
+                            <strong>TiviMate</strong> for Android TV, <strong>IPTV Smarters Pro</strong> for mobile and
+                            Samsung/LG TVs, or <strong>VLC Player</strong> for computers.</p>
                     </div>
                 </div>
 
-                <div class="step-card fade-up delay-2">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Setup & watch</h3>
-                        <p>Follow the setup guide and start streaming in minutes.</p>
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Enter Your Details</h3>
+                        <p>Open the app, select "Login with Xtream Codes API" (or similar), and enter the details
+                            provided in your welcome email:</p>
+                        <ul style="list-style-type: none; margin-top: 15px; color: #ccc;">
+                            <li><i class="fas fa-link" style="color: #C6FF34; margin-right: 10px;"></i> <strong>Portal
+                                    URL</strong></li>
+                            <li><i class="fas fa-user" style="color: #C6FF34; margin-right: 10px;"></i>
+                                <strong>Username</strong></li>
+                            <li><i class="fas fa-lock" style="color: #C6FF34; margin-right: 10px;"></i>
+                                <strong>Password</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Start Watching</h3>
+                        <p>Allow the app to load the channels, movies, and series list. This may take up to a minute on
+                            the very first load. Once done, you are ready to stream!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Device Specific Dropdowns (Reusing FAQ styles) -->
+    <section class="faq section"
+        style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Troubleshooting & <span class="highlight">Quick Tips</span></h2>
+            </div>
+
+            <div class="faq-container fade-up delay-1">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Channels are freezing or buffering</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Restart your router and device. Ensure your internet speed is at least 30 Mbps for HD. If
+                            using Wi-Fi, try connecting via Ethernet cable for absolute stability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>"Authorization Failed" error</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Double-check your username and password for typos (they are case-sensitive). Ensure you are
+                            not connected to a VPN, as some servers may block specific VPN IPs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>App doesn't load the EPG (TV Guide)</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Go to your app settings and look for the 'Update EPG' button. Sometimes the guide needs to be
+                            manually triggered on the first installation.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="steps-action fade-up" style="margin-top: 60px;">
-                <a href="pricing.html" class="btn btn-primary btn-large">Start Now <i
-                        class="fas fa-angle-double-right"></i></a>
-            </div>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section class="cta-section fade-up">
+        <div class="container">
+            <h2>Need human <span class="highlight">assistance</span>?</h2>
+            <p>Our support team is available 24/7 to help you get connected. Don't hesitate to reach out if you're stuck
+                on any step.</p>
+            <a href="contact.html" class="btn btn-outline btn-large">Contact Support</a>
         </div>
     </section>
 

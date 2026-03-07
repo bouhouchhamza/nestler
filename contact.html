@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Nustle</title>
+    <title>Contact Support - Stream Nustel</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,7 @@
             <a href="index.html" class="logo">NUSTLE</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="devices.html">Devices</a></li>
                 <li><a href="setup.html">Setup Guide</a></li>
@@ -39,61 +40,119 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero section">
+    <!-- Hero Section -->
+    <section class="page-hero contact-hero">
         <div class="glow-bg"></div>
-        <div class="container fade-up">
-            <h1 class="page-hero-title">Get in <span class="highlight">touch</span></h1>
-            <p class="page-hero-subtitle">Need help with setup or billing? Our 24/7 team is here for you.</p>
+        <div class="container">
+            <h1 class="page-hero-title fade-up">Need <span class="highlight">help</span>?</h1>
+            <p class="page-hero-subtitle fade-up delay-1">Our support team is online and ready to assist you.</p>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-section">
+    <!-- Contact Section -->
+    <section class="section" style="padding-top: 50px;">
         <div class="container">
-            <div class="contact-container glass-card fade-up" style="padding: 40px;">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+            <div class="contact-layout">
+
+                <!-- Info Blocks -->
+                <div class="contact-info-blocks fade-up delay-1">
+                    <div class="contact-block">
+                        <div class="contact-block-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-block-content">
+                            <h4>Email Us</h4>
+                            <p>Contact@nustle.com</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    <div class="contact-block">
+                        <div class="contact-block-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-block-content">
+                            <h4>WhatsApp</h4>
+                            <p>+33 423 498 894</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" class="form-control" required
-                            style="appearance: none; -webkit-appearance: none;">
-                            <option value="" disabled selected>Select a topic</option>
-                            <option value="Billing">Billing & Subscriptions</option>
-                            <option value="Technical">Technical Support</option>
-                            <option value="Sales">Sales Questions</option>
-                            <option value="Other">Other</option>
-                        </select>
+                    <div class="contact-block">
+                        <div class="contact-block-icon">
+                            <i class="fab fa-telegram-plane"></i>
+                        </div>
+                        <div class="contact-block-content">
+                            <h4>Telegram</h4>
+                            <p>@StreamNustelSupport</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" placeholder="How can we help you?"
-                            required></textarea>
+                    <div class="contact-block"
+                        style="background: rgba(198, 255, 52, 0.05); border-color: rgba(198, 255, 52, 0.2);">
+                        <div class="contact-block-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-block-content">
+                            <h4 style="color: var(--accent);">Support Hours</h4>
+                            <p>24/7 Priority Response</p>
+                        </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary full-width" style="margin-top: 15px;">Send Message <i
-                            class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
-                </form>
-            </div>
-
-            <div class="footer-contact fade-up delay-1" style="text-align: center; margin-top: 60px;">
-                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                    <p><i class="fas fa-envelope" style="color: var(--accent); margin-right: 8px;"></i>
-                        Contact@nustle.com</p>
-                    <p><i class="fas fa-phone" style="color: var(--accent); margin-right: 8px;"></i> +33 423 498 894</p>
-                    <p><i class="fas fa-phone" style="color: var(--accent); margin-right: 8px;"></i> +33 433 438 098</p>
                 </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container fade-up delay-2">
+                    <h3>Send a <span class="highlight">Message</span></h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" class="form-control" required
+                                style="cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23C6FF34%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 10px;">
+                                <option value="" disabled selected>Select a topic</option>
+                                <option value="sales">Sales & Pre-purchase</option>
+                                <option value="setup">Setup Assistance</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="billing">Billing & Payments</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control"
+                                placeholder="How can we help you today?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width"
+                            style="margin-top: 10px; font-size: 1.1rem;">
+                            Submit Request <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                        </button>
+                    </form>
+                </div>
+
             </div>
+        </div>
+    </section>
+
+    <!-- Support Reassurance Strip -->
+    <section class="section"
+        style="padding: 50px 0; background: rgba(198, 255, 52, 0.03); border-top: 1px solid rgba(198, 255, 52, 0.1);">
+        <div class="container" style="text-align: center;">
+            <p style="font-size: 1.1rem; color: #ccc;">
+                Having trouble activating your account? <a href="faq.html"
+                    style="color: var(--accent); text-decoration: none; font-weight: 500;">Check our FAQ <i
+                        class="fas fa-arrow-right"></i></a>
+            </p>
         </div>
     </section>
 
@@ -105,7 +164,12 @@
                     <a href="index.html" class="logo">NUSTLE</a>
                     <p>Premium streaming experience for everyone.</p>
                 </div>
-                <!-- Contact info omitted from here to prevent duplication on Contact page -->
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> Contact@nustle.com</p>
+                    <p><i class="fas fa-phone"></i> +33 423 498 894</p>
+                    <p><i class="fas fa-phone"></i> +33 433 438 098</p>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>Stream Nustel 2026. All rights reserved.</p>

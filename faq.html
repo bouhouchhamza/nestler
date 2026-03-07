@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Nustle</title>
+    <title>FAQ - Stream Nustel</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,7 @@
             <a href="index.html" class="logo">NUSTLE</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="devices.html">Devices</a></li>
                 <li><a href="setup.html">Setup Guide</a></li>
@@ -39,18 +40,27 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
-    <section class="page-hero section">
+    <!-- Hero Section -->
+    <section class="page-hero faq-hero">
         <div class="glow-bg"></div>
-        <div class="container fade-up">
-            <h1 class="page-hero-title">Questions? <span class="highlight">We've got answers</span></h1>
-            <p class="page-hero-subtitle">Everything you need to know about Nustle's premium streaming platform.</p>
+        <div class="container">
+            <h1 class="page-hero-title fade-up">How can we <span class="highlight">help</span>?</h1>
+            <p class="page-hero-subtitle fade-up delay-1">Search our knowledge base or browse frequently asked
+                questions.</p>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq section" style="padding-top: 40px;">
+    <!-- FAQ Search and Categories -->
+    <section class="section" style="padding-top: 0;">
         <div class="container">
+
+            <div class="faq-search-container fade-up delay-2">
+                <input type="text" class="faq-search-input" placeholder="Search for activation, devices, payment...">
+                <i class="fas fa-search faq-search-icon"></i>
+            </div>
+
+            <!-- Activation & Setup -->
+            <h3 class="faq-category-title fade-up"><i class="fas fa-rocket"></i> Activation & Setup</h3>
             <div class="faq-container fade-up">
                 <div class="faq-item">
                     <div class="faq-question">
@@ -58,58 +68,81 @@
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Usually within minutes after your payment is confirmed.</p>
+                        <p>Usually within minutes after your payment is confirmed. You will receive an email with your
+                            credentials and setup instructions.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do I need a VPN to use Stream Nustel?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A VPN is not required to use our service, as our connections are already secured. However, if
+                            your ISP blocks IPTV services, a VPN can help bypass those restrictions.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Plans & Payments -->
+            <h3 class="faq-category-title fade-up"><i class="fas fa-credit-card"></i> Plans & Payments</h3>
+            <div class="faq-container fade-up">
                 <div class="faq-item">
                     <div class="faq-question">
                         <h4>Can I upgrade my plan later?</h4>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes. Upgrade or downgrade anytime from your dashboard.</p>
+                        <p>Yes. Upgrade or downgrade anytime from your dashboard. If you upgrade mid-cycle, you will
+                            only be charged the prorated difference.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is the 7% top-up fee?</h4>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is a small transaction and gateway processing fee applied by our secure payment
+                            providers to ensure your data remains protected.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Devices -->
+            <h3 class="faq-category-title fade-up"><i class="fas fa-tv"></i> Devices & Usage</h3>
+            <div class="faq-container fade-up">
                 <div class="faq-item">
                     <div class="faq-question">
                         <h4>How many devices can I use?</h4>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Depends on the plan you choose. Basic allows 1 device, Premium allows 2 devices, and Pro
-                            gives you access on up to 5+ devices.</p>
+                        <p>Depends on the plan you choose. Basic allows 1 concurrent device, Premium allows 2 devices,
+                            and Pro gives you access on up to 5+ simultaneous devices.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h4>What kind of channels are available?</h4>
+                        <h4>Can I use the service when traveling abroad?</h4>
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We provide thousands of live channels globally, covering sports, entertainment, news, and
-                            movies from all corners of the world.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Do I need a VPN?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our service is highly encrypted and stable, but you may use a VPN if required by your local
-                            ISP or network limitations.</p>
+                        <p>Yes! Your account is not IP-locked to your home. You can stream from anywhere in the world as
+                            long as you have a stable internet connection.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="faq-action fade-up" style="margin-top: 60px;">
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Still have questions?</p>
-                <a href="contact.html" class="btn btn-primary">Contact Support</a>
-            </div>
+        </div>
+    </section>
+
+    <!-- Support CTA -->
+    <section class="cta-section fade-up">
+        <div class="container">
+            <h2>Still need <span class="highlight">help</span>?</h2>
+            <p>If you couldn't find the answer you're looking for, our support team is ready to assist you.</p>
+            <a href="contact.html" class="btn btn-primary btn-large">Contact Support</a>
         </div>
     </section>
 
