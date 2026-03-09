@@ -1,150 +1,186 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
+    initMobileMenu();
+    initActiveNavLink();
+    initStickyNavbar();
+    initFaqAccordion();
+    initRevealAnimations();
+    initStarfield();
+});
+
+function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const hamburgerIcon = document.querySelector('.hamburger i');
-    
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            if (navLinks.classList.contains('active')) {
-                hamburgerIcon.classList.remove('fa-bars');
-                hamburgerIcon.classList.add('fa-times');
-            } else {
-                hamburgerIcon.classList.remove('fa-times');
-                hamburgerIcon.classList.add('fa-bars');
-            }
-        });
-        
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburgerIcon.classList.remove('fa-times');
-                hamburgerIcon.classList.add('fa-bars');
-            });
-        });
-    }
 
-    // Set Active Nav Link
+    if (!hamburger || !navLinks) return;
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        if (!hamburgerIcon) return;
+
+        if (navLinks.classList.contains('active')) {
+            hamburgerIcon.classList.remove('fa-bars');
+            hamburgerIcon.classList.add('fa-times');
+        } else {
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            if (!hamburgerIcon) return;
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+        });
+    });
+}
+
+function initActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
     });
+}
 
-    // Sticky Navbar Background
+function initStickyNavbar() {
     const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
+}
 
-    // FAQ Accordion
+function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) return;
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return;
+
         question.addEventListener('click', () => {
-            // Close other items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
-            // Toggle current item
             item.classList.toggle('active');
         });
     });
+}
 
-    // Intersection Observer for Scroll Animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
+function initRevealAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-up');
+    if (!fadeElements.length) return;
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    if (!('IntersectionObserver' in window)) {
+        fadeElements.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, currentObserver) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Optional: Stop observing after animation triggers once
-                // observer.unobserve(entry.target); 
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            currentObserver.unobserve(entry.target);
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-up').forEach(element => {
-        observer.observe(element);
+    }, {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.12
     });
 
-    // Particle Background Generator (Basic stars/particles)
+    fadeElements.forEach(el => observer.observe(el));
+}
+
+function initStarfield() {
     const canvas = document.getElementById('particles');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-        
-        const particles = [];
-        const particleCount = Math.floor(width * height / 10000); // Responsive amount
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 1.5;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-                // Mostly white, some neon green
-                this.color = Math.random() > 0.95 ? '#C6FF34' : 'rgba(255, 255, 255, 0.5)';
-            }
-            
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                // Wrap around edges
-                if (this.x > width) this.x = 0;
-                else if (this.x < 0) this.x = width;
-                if (this.y > height) this.y = 0;
-                else if (this.y < 0) this.y = height;
-            }
-            
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-        
-        // Handle Resize
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            
-            // Adjust particle count if window size changes significantly
-            // but for simplicity we keep the same array
-        });
+    if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    const stars = [];
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    let animationFrameId = null;
+    let running = true;
+
+    function computeStarCount() {
+        const area = window.innerWidth * window.innerHeight;
+        const rawCount = Math.floor(area / 28000);
+        return Math.max(45, Math.min(95, rawCount));
     }
-});
+
+    function createStars() {
+        stars.length = 0;
+        const count = computeStarCount();
+        for (let i = 0; i < count; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: (0.5 + Math.random() * 1.2) * pixelRatio,
+                speed: 0.08 + Math.random() * 0.22,
+                opacity: 0.1 + Math.random() * 0.45
+            });
+        }
+    }
+
+    function resizeCanvas() {
+        canvas.width = Math.floor(window.innerWidth * pixelRatio);
+        canvas.height = Math.floor(window.innerHeight * pixelRatio);
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+        createStars();
+    }
+
+    function animateStars() {
+        if (!running) return;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(star => {
+            ctx.globalAlpha = star.opacity;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            star.y -= star.speed * pixelRatio;
+            if (star.y < -2) {
+                star.y = canvas.height + 2;
+                star.x = Math.random() * canvas.width;
+            }
+        });
+
+        animationFrameId = requestAnimationFrame(animateStars);
+    }
+
+    let resizeRaf = null;
+    window.addEventListener('resize', () => {
+        if (resizeRaf) cancelAnimationFrame(resizeRaf);
+        resizeRaf = requestAnimationFrame(resizeCanvas);
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            running = false;
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        } else if (!running) {
+            running = true;
+            animateStars();
+        }
+    });
+
+    resizeCanvas();
+    animateStars();
+}
